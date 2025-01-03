@@ -4,7 +4,6 @@ export default function Player() {
   const [name, setName] = useState("");
   const enteredName = useRef();
 
-
   function handleSetName() {
     setName(enteredName.current.value);
     enteredName.current.value = "";
