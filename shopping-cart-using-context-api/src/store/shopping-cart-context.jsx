@@ -8,7 +8,7 @@ export const ShoppingCartContext = createContext({
 });
 
 function shoppingCartReducer(state, action) {
-    if (action.name === "ADD_ITEM") {
+    if (action.type === "ADD_ITEM") {
         const updatedItems = [...state.items];
 
         const existingCartItemIndex = updatedItems.findIndex(
@@ -26,7 +26,7 @@ function shoppingCartReducer(state, action) {
             const product = DUMMY_PRODUCTS.find((product) => product.id === action.payload);
             updatedItems.push({
                 id: action.payload,
-                name: product.title,
+                type: product.title,
                 price: product.price,
                 quantity: 1,
             });
@@ -38,7 +38,7 @@ function shoppingCartReducer(state, action) {
         };
     }
 
-    if (state.action === "UPDATE_QUANTITY") {
+    if (action.type === "UPDATE_QUANTITY") {
         const updatedItems = [...state.items];
         const updatedItemIndex = updatedItems.findIndex(
             (item) => item.id === state.payload.productId
@@ -77,7 +77,7 @@ export default function ShoppingCartProvider({ children }) {
     function handleAddItemToCart(id) {
         shoppingCartDispatch(
             {
-                name: "ADD_ITEM",
+                type: "ADD_ITEM",
                 payload: id
             }
         )
@@ -86,7 +86,7 @@ export default function ShoppingCartProvider({ children }) {
     function handleUpdateCartItemQuantity(productId, amount) {
         setShoppingCart(
             {
-                name: "UPDATE_QUANTITY",
+                type: "UPDATE_QUANTITY",
                 payload: {
                     productId,
                     amount
