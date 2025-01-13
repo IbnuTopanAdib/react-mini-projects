@@ -1,6 +1,7 @@
-import { useState } from 'react'
+import { useState, useCallback } from 'react'
 import QUESTION from '../question.js';
 import quizCompleteImg from '../assets/quiz-complete.png'
+import QuizTimer from './QuizTimer.jsx';
 
 const Quiz = () => {
 
@@ -9,11 +10,13 @@ const Quiz = () => {
 
     const isQuizCompleted = activeQuestionIndex === QUESTION.length;
 
-    const handleUserAnswer = (answer) => {
+    const handleUserAnswer = useCallback(function handleUserAnswer(answer) {
         setUserAnswer((prevAnswer) => {
             return [...prevAnswer, answer]
         })
-    }
+    }, [])
+
+    const handleSkipAnswer = useCallback(() => handleUserAnswer(null), [handleUserAnswer]);
 
     if (isQuizCompleted) {
         return (
@@ -31,17 +34,18 @@ const Quiz = () => {
     return (
         <div id='quiz'>
             <div id="question">
+                <QuizTimer key={activeQuestionIndex} timeout={10000} onTimeout={handleSkipAnswer} />
                 <h2>{QUESTION[activeQuestionIndex].text}</h2>
+                <ul id='answers'>
+                    {
+                        shuffledAnswer.map((answer) => (
+                            <li className="answer" key={answer}>
+                                <button onClick={handleUserAnswer}>{answer}</button>
+                            </li>
+                        ))
+                    }
+                </ul>
             </div>
-            <ul id='answers'>
-                {
-                   shuffledAnswer.map((answer) => (
-                        <li className="answer">
-                            <button onClick={handleUserAnswer}>{answer}</button>
-                        </li>
-                    ))
-                }
-            </ul>
         </div>
     )
 }
