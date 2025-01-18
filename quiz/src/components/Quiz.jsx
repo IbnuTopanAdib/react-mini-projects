@@ -7,6 +7,8 @@ import Summary from './Summary.jsx';
 
 const Quiz = () => {
 
+    
+
     const [userAnswer, setUserAnswer] = useState([]);
     const activeQuestionIndex = userAnswer.length ;
 
@@ -26,9 +28,6 @@ const Quiz = () => {
            <Summary userAnswers={userAnswer}/>
         )
     }
-
-
-
 
     return (
         <div id='quiz'>
