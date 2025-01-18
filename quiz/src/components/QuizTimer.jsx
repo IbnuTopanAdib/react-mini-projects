@@ -4,7 +4,6 @@ const QuizTimer = ({ timeout, onTimeout }) => {
   const [remainingTime, setRemainingTime] = useState(timeout);
 
   useEffect(() => {
-    console.log('SETTING TIMEOUT');
     const timer = setTimeout(onTimeout, timeout);
 
     return () => {
@@ -13,7 +12,6 @@ const QuizTimer = ({ timeout, onTimeout }) => {
   }, [timeout, onTimeout]);
 
   useEffect(() => {
-    console.log('SETTING INTERVAL');
     const interval = setInterval(() => {
       setRemainingTime((prevRemainingTime) => prevRemainingTime - 100);
     }, 100);
