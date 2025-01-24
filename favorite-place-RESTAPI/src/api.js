@@ -18,9 +18,6 @@ export const putData = async (places) => {
     if (!res.ok) {
         throw Error('Something went wrong');
     }
-
-
-
     return await res.json();
 }
 
@@ -32,5 +29,5 @@ export const getUserData = async () => {
         throw Error("Something went wrong!")
     }
 
-    return data;
+    return data.places || [];
 }
