@@ -1,0 +1,53 @@
+{
+  "opinions": [
+    {
+      "id": 1738052098656,
+      "votes": 0,
+      "userName": "sss",
+      "title": "www",
+      "body": "wwww"
+    },
+    {
+      "id": 1738052078246,
+      "votes": 0,
+      "userName": "sssss",
+      "title": "ngenakkaka",
+      "body": "aaaaaaaaaaaaa"
+    },
+    {
+      "id": 1738051988177,
+      "votes": 0,
+      "userName": "babababb",
+      "title": "aaasss",
+      "body": "asassas"
+    },
+    {
+      "id": 1738051977253,
+      "votes": 0,
+      "userName": "babababb",
+      "title": "aaasss",
+      "body": "aassss"
+    },
+    {
+      "id": 1738051445655,
+      "votes": 0,
+      "userName": "aaa",
+      "title": "aaa",
+      "body": "aaaa"
+    },
+    {
+      "id": 1,
+      "userName": "Maximilian Schwarzmüller",
+      "title": "Do yourself a favor and learn React!",
+      "body": "React is an amazing JavaScript library!\n\nDespite all it's shortcomings.",
+      "votes": 0
+    },
+    {
+      "id": 2,
+      "userName": "Maximilian Schwarzmüller",
+      "title": "React has more depth than you might first think!",
+      "body": "React is a great library to learn, but it's not just about the basics. Dive deeper!\nFor example with this course!",
+      "votes": 0
+    }
+  ]
+}
